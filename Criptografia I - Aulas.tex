@@ -33,7 +33,7 @@
 \setlength{\arrayrulewidth}{1pt}
 
 \newcommand{\idiii}[1]{%
-\pgfmathsetmacro{\idii}{#1-1}}
+	\pgfmathsetmacro{\idii}{#1-1}}
 
 \newcolumntype{M}[1]{>{\raggedright\arraybackslash}m{#1\linewidth-2\tabcolsep - 1.25\arrayrulewidth}}
 \newcolumntype{N}[1]{>{\centering\arraybackslash}m{#1\linewidth-2\tabcolsep - 1.25\arrayrulewidth}}
@@ -1765,14 +1765,14 @@ $$DES(k,m_{1})\oplus DES(k,m_{2})\oplus DES(k,m_{3})=B\left[\begin{array}{c}
 	m_{1}\\
 	k
 \end{array}\right]\oplus B\left[\begin{array}{c}
-m_{2}\\
-k
+	m_{2}\\
+	k
 \end{array}\right]\oplus B\left[\begin{array}{c}
-m_{3}\\
-k
+	m_{3}\\
+	k
 \end{array}\right]=B\left[\begin{array}{c}
-m_{1}\oplus m_{2}\oplus m_{3}\\
-k\oplus k\oplus k
+	m_{1}\oplus m_{2}\oplus m_{3}\\
+	k\oplus k\oplus k
 \end{array}\right]$$And as $k\oplus k\oplus k=k$ we have that
 $$DES(k,m_{1})\oplus DES(k,m_{2})\oplus DES(k,m_{3})=DES(k,m_{1}\oplus m_{2}\oplus m_{3})$$This relation is not valid for a truly random function. That's why DES is insecure if the $S$-boxes are linear. Because, given enough output pairs, I can literally recover the entire secret key.
 
@@ -2225,12 +2225,12 @@ The substitution layers are similar to $S$-boxes in DES, but, in this case, they
 		$S_{2,0}$&$S_{2,1}$&$S_{2,2}$&$S_{2,3}$\\\hline
 		$S_{3,0}$&$S_{3,1}$&$S_{3,2}$&$S_{3,3}$\\\hline
 	\end{tabular} $\Longrightarrow$ \begin{tabular}{|c|c|c|c|}
-	\hline
-	$S_{0,0}$&$S_{0,1}$&$S_{0,2}$&$S_{0,3}$\\\hline
-	$S_{1,1}$&$S_{1,2}$&$S_{1,3}$&$S_{1,0}$\\\hline
-	$S_{2,2}$&$S_{2,3}$&$S_{2,0}$&$S_{2,1}$\\\hline
-	$S_{3,3}$&$S_{3,0}$&$S_{3,1}$&$S_{3,2}$\\\hline
-\end{tabular}
+		\hline
+		$S_{0,0}$&$S_{0,1}$&$S_{0,2}$&$S_{0,3}$\\\hline
+		$S_{1,1}$&$S_{1,2}$&$S_{1,3}$&$S_{1,0}$\\\hline
+		$S_{2,2}$&$S_{2,3}$&$S_{2,0}$&$S_{2,1}$\\\hline
+		$S_{3,3}$&$S_{3,0}$&$S_{3,1}$&$S_{3,2}$\\\hline
+	\end{tabular}
 	\item MixColumns: A linear transformation is applied independently to each column, in other words, the matrix is multiplied by a certain matrix.
 \end{itemize}
 
@@ -2686,13 +2686,13 @@ Electronic Code Book (ECB):
 			\idiii{\idi}
 			\node[draw=black,minimum width=1cm,minimum height=0.7cm,shift={(\idii,0)}] (p\idi) at (pt.east) {};
 		}
-	
+		
 		\node[draw=black,minimum width=1cm,minimum height=0.7cm,shift={(1,0)}] (c1) at (ct.east){};
 		\foreach \idi in {2,...,15}{%
 			\idiii{\idi}
 			\node[draw=black,minimum width=1cm,minimum height=0.7cm,shift={(\idii,0)}] (c\idi) at (ct.east) {};
 		}
-	
+		
 		\node (m1) at (p4.center) {$m_{1}$};
 		\node (cm1) at (c4.center) {$c_{1}$};
 		\node (m2) at (p7.center) {$m_{2}$};
@@ -2908,12 +2908,12 @@ Let $\mathcal{E}=(E,D)$ be a cipher defined over $(\mathcal{K,M,C})$. For $b\in\
 			\draw[-stealth,ultra thick] (adv.west)--(chal.east);
 			\node[shift={(0.5,0.35)},anchor=west] (m0m1) at (chal.east) {$m_{1,0},m_{1,1}\in\mathcal{M}:\ |m_{1,0}|=|m_{1,1}|$};
 		\end{scope}
-	
+		
 		\begin{scope}[transform canvas={yshift=-0.75cm}]
 			\draw[-stealth,ultra thick] (chal.east)--(adv.west);
 			\node[shift={(2.5,-0.35)},anchor=west] (c1) at (chal.east) {$c_{1}\leftarrow E(k,m_{1,b})$};
 		\end{scope}
-	
+		
 		\node[left=0.5cm of chal] (b) {$b$};
 		\draw[-stealth,ultra thick] (b.east)--(chal.west);
 	\end{tikzpicture}
@@ -3322,7 +3322,7 @@ Suppose we want $Adv_{CPA}[A,E_{CBC}]\leq \frac{1}{2^{32}}$. This means that $\f
 		\item[] We can encrypt $2^{48}\cdot \frac{128}{8}=2^{52}$ bytes = $2^{22}$ Gb of data to change key.
 	\end{itemize}
 	\item 3DES: $|\mathcal{X}|=2^{64}\Rightarrow qL<2^{16}$
-		\begin{itemize}
+	\begin{itemize}
 		\item[] So, after $2^{16}$ 3DES blocks, must change the key.
 		\item[] We can encrypt $2^{16}\cdot \frac{64}{8}=2^{19}$ bytes = $\frac{1}{2}$ Mb of data to change key, which is quite low.
 	\end{itemize}
@@ -3470,13 +3470,13 @@ $k_{1}$ must be different of $k$ to be CPA semantically secure.
 
 \subsubsection{An example Crypto API (OpenSSL)}
 \begin{verbatim}
-    void AES_cbc_encrypt(
-        const unsigned char *in, //plain text
-        unsigned char *out, //cipher text
-        size_t length, // length of the plain text
-        const AES_KEY *key, //AES key
-        unsigned char *ivec, //IV, which is given by the user
-        AES_ENCRYPT or AES_DECRYPT);
+	void AES_cbc_encrypt(
+	const unsigned char *in, //plain text
+	unsigned char *out, //cipher text
+	size_t length, // length of the plain text
+	const AES_KEY *key, //AES key
+	unsigned char *ivec, //IV, which is given by the user
+	AES_ENCRYPT or AES_DECRYPT);
 \end{verbatim}
 When \underline{nonce is non random}, it's \underline{necessary to encrypt it before use}, for the construction be CPA secure.
 
@@ -3808,7 +3808,7 @@ For a MAC $I=(S,V)$ and adversary $A$ define a MAC game as:
 			\draw[-stealth,ultra thick] (chal.east)--(adv.west);
 			\node[shift={(1.5,-0.35)},anchor=west] (c1) at (chal.east) {$t_{1}\leftarrow S(k,m_{1}),\ t_{2},\cdots,t_{q}$};
 		\end{scope}
-	
+		
 		\begin{scope}[transform canvas={yshift=-0.75cm}]
 			\draw[-stealth,ultra thick] (adv.west)--(chal.east);
 			\node[shift={(1.5,-0.35)},anchor=west] (m0m1) at (chal.east) {$(m,t)$};
@@ -3819,8 +3819,8 @@ For a MAC $I=(S,V)$ and adversary $A$ define a MAC game as:
 	\end{tikzpicture}
 \end{center}And he wins the game if the challenger outputs $b=1$, where
 \begin{itemize}
-\item[] $b=1$, if $V(k,m,t)=\ 'yes'$ and $(m,t)\notin\{(m_{1},t_{1}),\cdots,(m_{q},t_{q})\}$
-\item[] $b=0$ otherwise
+	\item[] $b=1$, if $V(k,m,t)=\ 'yes'$ and $(m,t)\notin\{(m_{1},t_{1}),\cdots,(m_{q},t_{q})\}$
+	\item[] $b=0$ otherwise
 \end{itemize}
 
 \Def $I=(S,V)$ is a secure MAC if for all ``efficient'' $A$:
@@ -3910,7 +3910,7 @@ Suppose $f:\mathcal{X}\rightarrow\mathcal{Y}$ is a truly random function. Then M
 			\draw[-stealth,ultra thick] (chal.east)--(adv.west);
 			\node[shift={(1.5,-0.35)},anchor=west] (c1) at (chal.east) {$t_{1}\leftarrow f(m_{1}),\ f(m_{2}),\cdots,f(m_{q})$};
 		\end{scope}
-	
+		
 		\begin{scope}[transform canvas={yshift=-0.75cm}]
 			\draw[-stealth,ultra thick] (adv.west)--(chal.east);
 			\node[shift={(1.5,-0.35)},anchor=west] (m0m1) at (chal.east) {$(m,t)$};
@@ -4407,7 +4407,7 @@ Let $F:\mathcal{K}\times\mathcal{X}\rightarrow\mathcal{X}$ be a PRF. So, we defi
 		\draw[ultra thick,-stealth] (plus0.south)--(E0.north);
 		\draw[ultra thick,-stealth] (plus1.south)--(E1.north);
 		\draw[ultra thick,-stealth] (plus2.south)--(E2.north);
-
+		
 		
 		\draw[ultra thick] (E0.south)--(eb0);
 		\draw[ultra thick] (E1.south)--(eb1);
@@ -4712,7 +4712,7 @@ In block's diagram:
 			\node[shift={(-1.5,0.5)}] (mi) at (E.west) {$m_{i}$};
 			\draw[-stealth,ultra thick] (mi.south)|-(E.west);
 		\end{scope}
-	
+		
 		\begin{scope}[transform canvas={yshift=-0.25cm}]
 			\node[shift={(-3,0)}] (Hi) at (E.west) {$H_{i}$};
 			\draw[-stealth,ultra thick] (Hi.east)--(E.west);
@@ -4918,7 +4918,7 @@ In pictures:
 			\draw[-stealth,ultra thick] (h1e)--(h2w);
 			\draw[-stealth,ultra thick] (h2e)--(h3w);
 		\end{scope}
-	
+		
 		\coordinate[below=4.0cm of h3nw,shift={(-1,0)}] (h5nw);
 		\coordinate[shift={(0,-0.5)}] (h5w) at (h5nw);
 		\coordinate[shift={(2,0)}] (h5e) at (h5w);
@@ -4972,8 +4972,8 @@ In TLS standard: must support HMAC-SHA1-96 (SHA1 outputs 160, and here is trunca
 \subsubsection{Warning: verification timing attacks [L'09]}
 Example: Keyczar crypto library (Python) [simplified]
 \begin{verbatim}
-    def Verify(key, msg, sig_bytes):
-        return HMAC(key, msg) == sig_bytes
+	def Verify(key, msg, sig_bytes):
+	return HMAC(key, msg) == sig_bytes
 \end{verbatim}Where \verb|sig_bites| is the tag.
 
 The problem is that `==' is implemented as a byte-by-byte comparison.
@@ -4993,19 +4993,19 @@ Timing attack: to compute tag for target message $m$ do the following steps:
 \subsubsection{Defense \#1}
 Make string comparator always take same time (Python):
 \begin{verbatim}
-    return False if sig_bytes has wrong length
-    result = 0
-    for x, y in zip(HMAC(key, msg), sig_bytes):
-        result |= ord(x)^ord(y)
-    return result == 0
+	return False if sig_bytes has wrong length
+	result = 0
+	for x, y in zip(HMAC(key, msg), sig_bytes):
+	result |= ord(x)^ord(y)
+	return result == 0
 \end{verbatim}It's impossible to make a timing attack to this code. But it can be difficult to ensure it due to optimizing compiler. (Compilers can optimize some types of codes to work faster depending on the working of it)
 
 \subsubsection{Defense \#2}
 Make string comparator always take same time (Python):
 \begin{verbatim}
-    def Verify(key, msg, sig_bytes):
-        mac = HMAC(key, msg)
-        return HMAC(key, mac) == HMAC(key, sig_bytes)
+	def Verify(key, msg, sig_bytes):
+	mac = HMAC(key, msg)
+	return HMAC(key, mac) == HMAC(key, sig_bytes)
 \end{verbatim}Attacker doesn't know values being compared, because if \verb|mac| and \verb|sig_bytes| are different, so a hashing of them will be completely different and a comparation between them will stop at the first byte almost always.
 
 \subsubsection{Lesson}
@@ -5264,11 +5264,11 @@ Let $\mathcal{E}=(E,D)$ be a cipher defined over $(\mathcal{K,M,C})$. For $b\in\
 			\draw[-stealth,ultra thick] (chal.east)--(adv.west);
 			\node[shift={(2.5,-0.35)},anchor=west] (c1) at (chal.east) {$c_{i}\leftarrow E(k,m_{i,b})$};
 		\end{scope}
-	
+		
 		\begin{scope}[transform canvas={yshift=0cm}]
 			\node[shift={(0.25,-0.35)},anchor=west] (m0m1) at (chal.east) {(2) \textbf{CCA query}:};
 		\end{scope}
-	
+		
 		\begin{scope}[transform canvas={yshift=-1.5cm}]
 			\draw[-stealth,ultra thick] (adv.west)--(chal.east);
 			\node[shift={(0.5,0.35)},anchor=west] (m0m1) at (chal.east) {$c_{i}\in\mathcal{C}:\ c_{i}\notin\{c_{1},\cdots,c_{i-1}\}$};
@@ -5528,4 +5528,11 @@ Crypto APIs before then: (e.g. MS-CAPI)
 	\item Provide API for CPA-secure encryption (e.g. CBC with random IV)
 	\item Provide API for MAC (e.g. HMAC)
 \end{itemize}
+
+\textbf{from here}:
+
+Beginning with SSH, we know that MACs don't provide confidentiality, but only integrity. And may happen that a few bits of the message appear in the tag making the scheme not CPA secure.
+
+The recommended method is the IPsec method, because it doesn't matter what CPA secure system and MAC key I use, the combination is always gonna provide authenticated encryption.
+4:10
 \end{document}
